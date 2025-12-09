@@ -10,8 +10,11 @@ dist
 obj
 docs/extensions
 .ipynb_checkpoints
-.idea
-/pytket/extensions/qujax/_metadata.py
 .DS_Store
+node_modules
+uv.lock
 docs/pyproject.toml
 docs/poetry.lock
+docs/uv.lock
+docs/conf.py
+docs/_static
