@@ -39,7 +39,7 @@ tracker = "https://github.com/Quantinuum/pytket-qujax/issues"
 find = {}
 
 [tool.setuptools.dynamic]
-version = {attr = "_metadata.__extension_version__"}
+version = {attr = "pytket.extensions.qujax._metadata.__extension_version__"}
 
 [build-system]
 requires = ["setuptools"]

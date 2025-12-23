@@ -7,7 +7,7 @@
 with tket, a quantum computing toolkit and optimising compiler developed by Quantinuum.
 
 `pytket-qujax` is an extension to `pytket` that allows `pytket` circuits to be
-executed on .
+executed on the QuJax simulator.
 
 Some useful links:
 

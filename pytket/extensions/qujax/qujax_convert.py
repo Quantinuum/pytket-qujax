@@ -20,7 +20,7 @@ from jax import numpy as jnp
 from sympy import Symbol, lambdify
 
 import qujax  # type: ignore
-from pytket import Circuit, Qubit  # type: ignore
+from pytket import Circuit, Qubit
 from pytket._tket.circuit import Command
 
 
