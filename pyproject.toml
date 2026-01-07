@@ -26,7 +26,7 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "pytket >= 2.7.0",
+    "pytket >= 2.11.0",
     "qujax ~= 1.0",
 ]
 
