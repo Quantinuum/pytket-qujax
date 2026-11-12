@@ -3,6 +3,12 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+----------
+
+* Preserve circuit qubit ordering when converting custom registers, sparse
+  indices, and multidimensional identifiers to simulator wires.
+
 0.22.0 (January 2026)
 ---------------------
 
