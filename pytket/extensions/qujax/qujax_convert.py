@@ -109,6 +109,8 @@ def tk_to_qujax_args(
     Converts a pytket circuit into a tuple of arguments representing
     a qujax quantum circuit.
     Assumes all circuit gates can be found in ``qujax.gates``
+    Qubit axes follow the order of ``circuit.qubits``, including custom registers
+    and non-contiguous or multidimensional indices.
     The ``symbol_map`` argument controls the interpretation of any symbolic parameters
     found in ``circuit.free_symbols()``.
 
@@ -149,6 +151,7 @@ def tk_to_qujax_args(
     qubit_inds_seq = []
     param_inds_seq = []
     param_index = 0
+    qubit_map = {qubit: index for index, qubit in enumerate(circuit.qubits)}
     for c in circuit.get_commands():
         gate_name = c.op.type.name
         if gate_name == "Barrier":
@@ -178,7 +181,7 @@ def tk_to_qujax_args(
             param_index += n_params
 
         gate_name_seq.append(gate)
-        qubit_inds_seq.append(_tk_qubits_to_inds(c.qubits))
+        qubit_inds_seq.append(tuple(qubit_map[q] for q in c.qubits))
         param_inds_seq.append(param_inds)
 
     return gate_name_seq, qubit_inds_seq, param_inds_seq, circuit.n_qubits
