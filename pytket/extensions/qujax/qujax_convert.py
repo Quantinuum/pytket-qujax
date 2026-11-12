@@ -84,7 +84,7 @@ def _symbolic_command_to_gate_and_param_inds(
             ):
                 gate = gate_str
             else:
-                gate_lambda = lambdify(free_symbols, gate_params)
+                gate_lambda = lambdify(free_symbols, gate_params, modules="jax")
                 gate = _append_func(gate_lambda, qujax_gate)
         else:
             gate = gate_str

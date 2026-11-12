@@ -3,6 +3,12 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+----------
+
+* Use JAX operations for nonlinear symbolic gate parameters so compiled
+  simulation and automatic differentiation remain supported.
+
 0.22.0 (January 2026)
 ---------------------
 
