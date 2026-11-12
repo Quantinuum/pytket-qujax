@@ -121,6 +121,7 @@ def tk_to_qujax_args(
       parameters will be given by this dict. Keys of the dict should be symbolic pytket
       parameters as in ``circuit.free_symbols()`` and the values indicate
       the index of the qujax circuit parameter -- integer indices starting from 0.
+      An empty dict embeds fixed gate parameters when the circuit has no symbols.
 
     The conversion can also be checked with :py:func:`print_circuit`.
 
@@ -137,7 +138,7 @@ def tk_to_qujax_args(
         - Sequence of sequences of parameter indices that gates are using.
         - Number of qubits.
     """
-    if symbol_map:
+    if symbol_map is not None:
         assert set(symbol_map.keys()) == circuit.free_symbols(), (
             "Circuit keys do not much symbol_map"
         )
@@ -160,7 +161,7 @@ def tk_to_qujax_args(
                 "to all qubits."
             )
 
-        if symbol_map:
+        if symbol_map is not None:
             gate, param_inds = _symbolic_command_to_gate_and_param_inds(c, symbol_map)
         else:
             if gate_name not in qujax.gates.__dict__:
@@ -202,6 +203,7 @@ def tk_to_qujax(
       parameters will be given by this dict. Keys of the dict should be symbolic pytket
       parameters as in ``circuit.free_symbols()`` and the values indicate
       the index of the qujax circuit parameter -- integer indices starting from 0.
+      An empty dict embeds fixed gate parameters when the circuit has no symbols.
 
     The conversion can be checked by examining the output from :py:func:`tk_to_qujax_args`
     or :py:func:`print_circuit`.

@@ -3,6 +3,12 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+----------
+
+* Respect an explicitly empty symbol map: embed fixed gate parameters and
+  reject circuits with unmapped symbols.
+
 0.22.0 (January 2026)
 ---------------------
 
